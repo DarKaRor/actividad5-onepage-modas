@@ -1,0 +1,631 @@
+@font-face {
+    font-family: "Cinzel";
+    src: url(../fonts/Cinzel-Black.otf) format("truetype");
+    font-weight:bolder;
+}
+
+@font-face {
+    font-family: "Cinzel";
+    src: url(../fonts/Cinzel-Bold.otf) format("truetype");
+    font-weight:bold;
+}
+
+@font-face {
+    font-family: "Cinzel";
+    src: url(../fonts/Cinzel-Regular.otf) format("truetype");
+    font-weight: normal;
+}
+
+*{
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root{
+--color-main: #52b69a;
+}
+/* ---------- NAVIGATION ------------ */
+
+.disappear{
+    display:none !important;
+}
+
+.nav-btn{
+    position: fixed;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:80px;
+    height:80px;
+    cursor: pointer;
+    background-color:white;
+    border:3px solid black;
+    border-radius:6px;
+    transform: scale(70%);
+    transition:all .2s ease-in-out;
+    z-index:12;
+    
+}
+
+.nav-burger{
+    width:50px;
+    height:6px;
+    background:black;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rbga(255,101,47,.2);
+    transition: all .5s ease-in;
+}
+
+.nav-burger::before,
+.nav-burger::after{
+    content:'';
+    position: absolute;
+    width:50px;
+    height:6px;
+    background:black;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rbga(255,101,47,.2);
+    transition: all .5s ease-in-out;
+}
+
+.nav-burger::before{
+    transform: translateY(-16px);
+}
+
+.nav-burger::after{
+    transform: translateY(16px);
+}
+
+.nav-btn.open .nav-burger{
+    transform: translateX(-50px);
+    background:transparent;
+    box-shadow:none;
+}
+
+.nav-btn.open .nav-burger::before{
+    transform: rotate(45deg) translate(35px, -35px);
+}
+
+.nav-btn.open .nav-burger::after{
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+
+nav{
+    background-color: rgba(36, 36, 36, 0.8);
+    padding:20px;
+    width:100%;
+    position:fixed;
+    z-index: 10;
+}
+nav > ul{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav li{
+    margin-right:5%;
+    list-style: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.5s;
+}
+
+nav li>a{
+    color:white;
+    text-decoration: none;
+    text-transform: uppercase; 
+}
+
+nav li:hover{
+    border-bottom: 2px solid var(--color-main);;
+}
+
+/*-------- HEADER -------*/
+
+header{
+    height:100vh;
+    background-image: linear-gradient(rgba(82, 182, 154,0.5),rgba(0,0,0,0.6))
+                      ,url(../img/back.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    color:white;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+header div{
+    width:50%;
+}
+
+header h1{
+    font-family: "Cinzel";
+    font-weight: normal;
+    text-align: center;
+    font-size:900%;
+    
+}
+
+header p{
+    font-size:130%;
+    text-align: center;
+    font-weight:200;
+}
+
+/*----- COMPONENTS -----*/
+
+h2{
+    font-size:260%;
+    text-align: center;
+    font-weight: lighter;
+    margin-bottom:40px;
+}
+
+h2:after{
+    background-color:var(--color-main);
+    height:3px;
+    display: block;
+    content: " ";
+    width:100px;
+    margin:auto;
+    margin-top:10px;
+}
+
+p{
+    padding-bottom: 10px;
+}
+
+.responsive-img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.basic-section{
+    min-height: 100vh;
+    padding:5%;
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.button{
+    background-color:rgb(27, 27, 27);
+    color:white;
+    text-decoration: none;
+    padding:10px 20px 10px 20px;
+    font-weight:100;
+    transition: background-color 0.3s;
+
+}
+
+.button:hover{
+    background-color:rgb(39, 39, 39);
+}
+
+.gallery{
+    display: flex;
+    justify-content: center;
+    background-color: #f5f5f5;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+
+
+
+
+.element{
+    text-decoration: none;
+    color:black;
+    font-weight:100;
+    padding:30px;
+    text-align:center;
+    border-right:1px solid white;
+    transition: all 0.2s;
+    flex: 1 0 33%; 
+    
+}
+
+.element:hover{
+    transform: scale(110%);
+}
+
+
+.element p{
+    text-transform: uppercase;
+    font-size:80%;
+}
+
+.element h3{
+    font-weight: 100;
+    letter-spacing: 2px;
+    font-size:180%;
+
+}
+
+
+/*------ About Us --------*/
+
+
+.text-block
+{
+    width:50%;
+    margin:auto;
+    line-height: 30px;
+    word-spacing: 5px;
+}
+
+#About img{
+    margin:auto;
+    margin-top:100px;
+}
+
+/*------- NEW -------*/
+
+#New{
+    background-color:rgb(245, 245, 245);
+    padding-top:5%;
+}
+
+.newElement{
+    height:80vh;
+    background-size:cover;
+    background-position: bottom;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.newElement h3{
+    font-weight: 100;
+    font-size:500%;
+    text-transform: uppercase;
+    color:white;
+}
+
+.img1{
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7)), url(../img/1.avif);
+}
+
+.img2{
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7)), url(../img/2.avif);
+}
+
+.img3{
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7)), url(../img/3.avif);
+}
+
+.img4{
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7)), url(../img/4.avif);
+}
+
+.img5{
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7)), url(../img/5.avif);
+}
+
+/* ---- MEN ----*/
+
+.gallery-section{
+    padding-top:30px;
+}
+
+.men{
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7)), url(../img/men.avif);
+}
+
+/*----- WOMEN ---*/
+
+.women{
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7)), url(../img/women.avif);
+    background-position: top;
+}
+
+/*----- CHILDREN -----*/
+
+.children{
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7)), url(../img/children.avif);
+}
+
+/* ---- FOOTER ---- */
+
+footer{
+    background-color:rgb(39, 39, 39);
+    padding:2% 10% 2% 10%;
+    color:rgb(100, 100, 100);
+}
+
+
+footer>ul{
+    display:flex;
+    justify-content: space-evenly;
+}
+
+footer>ul li{
+    text-align: center;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+footer>ul h4{
+    padding-bottom:50px;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size:80%;
+}
+
+footer>ul li ul{
+    color:white;
+    font-weight:100;
+    width:50%;
+}
+
+footer>ul li ul li{
+    padding-bottom:10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+footer>ul li ul li i{
+    margin-right:10px;
+    padding-bottom:5px;
+    color:rgb(100, 100, 100);
+}
+
+footer a{
+    color:white;
+    text-decoration: none;
+    border-bottom:1px solid transparent;
+    transition: all 0.2s;
+    text-align: left;
+    font-size:80%;
+ 
+}
+
+footer a:hover{
+    color:rgb(195, 195, 195);
+    border-bottom:1px solid white;
+    
+
+}
+
+footer p{
+    padding:0px;
+    text-align: center;
+}
+
+
+@media screen and (max-width:1200px)
+{
+    .element{
+        flex: 1 0 50%; 
+    }
+
+    footer{
+        padding-left:0px;
+        padding-right:0px;
+    }
+
+    footer ul{
+        justify-content:  center;
+    }
+}
+
+@media screen and (max-width:1024px){
+
+    header h1{
+        text-align: center;
+    }
+
+    footer ul{
+        justify-content: space-around;
+    }
+
+    .newElement h3{
+        font-size:300%;
+        text-align: center;
+    }
+
+    .button{
+        padding:5px 10px 5px 10px;
+        font-size:80%;
+    }
+
+}
+
+@media screen and (max-width:768px){
+
+    nav{
+        width:40vh;
+        height:100vh;
+        padding:10px;
+    }
+    
+    nav ul{
+        flex-direction: column;
+        height:100%;
+        justify-content: space-evenly;
+    }
+
+    nav{
+        transition: all 0.2s ease-in-out;
+        transform:translate(-100%);
+    }
+
+    nav.open{
+        transition: all 0.2s ease-in-out;
+        transform:translate(0%);
+    }
+
+    nav li>a{
+        font-size:90%;
+    }
+
+    header{
+        justify-content: center;
+        align-items: center;
+    }
+
+    header h1{
+        font-size:600%;
+    }
+
+    header p{
+        font-size:110%;
+    }
+
+    h2{
+        font-size:200%;
+    }
+
+    .text-block{
+        width:100%;
+        font-size:90%;
+    }
+
+    #About img{
+        margin-top:50px;
+    }
+
+    .newElement h3{
+        font-size:250%;
+        padding-bottom:20px;
+    }
+
+    footer>ul{
+        justify-content: stretch;
+        flex-wrap: wrap;
+    }
+
+    footer>ul>li{
+        width:25%;
+    }
+
+    footer>ul>li h4{
+        font-size:60%;
+    }
+
+    footer>ul>li>ul>li i{
+        margin-right:2px;
+    }
+
+    footer>ul>li>ul>li a{
+        font-size:60%;
+    }
+
+    footer p{
+        font-size:70%;
+    }
+}
+
+@media screen and (max-width:480px){
+
+
+    nav li>a{
+        font-size:70%;
+    }
+
+    header h1{
+        font-size:450%;
+    }
+
+    header p{
+        font-size:90%;
+    }
+
+    .basic-section{
+        padding:2%;
+    }
+
+    .text-block{
+        font-size:80%;
+    }
+
+    h2{
+        margin-bottom:10px;
+        font-size:180%;
+    }
+
+    h2::after{
+        margin-top:5px;
+        height:2px;
+    }
+
+    .newElement{
+        height:40vh
+    }
+
+    .newElement h3{
+        font-size:180%;
+    }
+
+    .element{
+        flex: 1 0 100%; 
+    }
+
+    .gallery{
+        flex-wrap: wrap; 
+        width:100%;
+        overflow: hidden;
+    }
+
+}
+
+@media screen and (max-width:320px){
+
+    header{
+        margin:0px;
+        padding:0px;
+    }
+
+    header h1{
+        font-size:280%;
+        width:100%;
+        margin:0px;
+        padding:0px;
+    }
+
+    header p{
+        width:100%;
+        font-size:80%;
+    }
+
+    footer>ul{
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    footer>ul>li{
+        flex: 1 0 50%;
+    }
+
+    .element{
+        flex: 1 1 100%;
+
+    }
+
+    .element h3{
+        font-size:100%;
+    }
+
+    .element p{
+        font-size:70%;
+    }
+
+}
+
+
+
+
+
